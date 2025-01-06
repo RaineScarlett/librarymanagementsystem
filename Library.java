@@ -1,2 +1,3 @@
 public interface Library {
+    // facade
 }
