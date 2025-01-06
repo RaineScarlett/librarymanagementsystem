@@ -1,3 +1,2 @@
-public interface library {
-    
+public interface Library {
 }
