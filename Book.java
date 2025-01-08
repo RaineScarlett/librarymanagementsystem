@@ -2,43 +2,45 @@ public class Book {
     private String title;
     private String author;
     private String genre;
-    private Shelf shelf;  // Book knows only about the Shelf
+    private Shelf shelf;  // Reference to the shelf the book is on
 
+    // Constructor to create a book
     public Book(String title, String author, String genre) {
         this.title = title;
         this.author = author;
         this.genre = genre;
     }
 
-    // Getters
+    // Getter for title
     public String getTitle() {
         return title;
     }
 
+    // Getter for author
     public String getAuthor() {
         return author;
     }
 
+    // Getter for genre
     public String getGenre() {
         return genre;
     }
 
-    public Shelf getShelf() {
-        return shelf;
-    }
-
-    // Set shelf for book
+    // Setter for shelf (to associate a book with a shelf)
     public void setShelf(Shelf shelf) {
         this.shelf = shelf;
     }
 
-    // Get the floor from the shelf
-    public Floor getFloor() {
-        return shelf != null ? shelf.getFloor() : null;
+    // Getter for shelf
+    public Shelf getShelf() {
+        return shelf;
     }
 
+    // Overriding toString() to include shelf and floor details
     @Override
     public String toString() {
-        return title + " by " + author + " (Genre: " + genre + ", Shelf: " + shelf.getName() + ", Floor: " + getFloor().getName() + ")";
+        String shelfName = (shelf != null) ? shelf.getName() : "No shelf assigned";
+        String floorName = (shelf != null && shelf.getFloor() != null) ? shelf.getFloor().getName() : "No floor assigned";
+        return "Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Shelf: " + shelfName + ", Floor: " + floorName;
     }
 }

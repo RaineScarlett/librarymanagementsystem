@@ -10,23 +10,20 @@ public class Floor {
         this.shelves = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void addShelf(Shelf shelf) {
+        shelf.setFloor(this);  // Set the floor for the shelf
         shelves.add(shelf);
     }
 
-    public List<Shelf> getShelves() {
-        return shelves;
+    public List<Book> getAllBooks() {
+        List<Book> allBooks = new ArrayList<>();
+        for (Shelf shelf : shelves) {
+            allBooks.addAll(shelf.getBooks());
+        }
+        return allBooks;
     }
 
-    public List<Book> getAllBooks() {
-        List<Book> books = new ArrayList<>();
-        for (Shelf shelf : shelves) {
-            books.addAll(shelf.getBooks());
-        }
-        return books;
+    public String getName() {
+        return name;
     }
 }

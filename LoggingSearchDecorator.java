@@ -1,13 +1,26 @@
-public class LoggingSearchDecorator extends SearchStrategyDecorator{
+public class LoggingSearchDecorator implements SearchStrategy {
+    private SearchStrategy strategy;
 
     public LoggingSearchDecorator(SearchStrategy strategy) {
-        super(strategy);
+        this.strategy = strategy;
     }
 
     @Override
     public void searchMethod(String query) {
-        System.out.println("[LOG] executing search for query: " + query);
+        // Track the start time
+        long startTime = System.nanoTime();
 
-        super.searchMethod(query);
+        // Perform the search
+        System.out.println("[LOG] executing search for query: " + query);
+        strategy.searchMethod(query); // Delegate to the actual search strategy
+
+        // Track the end time
+        long endTime = System.nanoTime();
+
+        // Calculate the time elapsed in milliseconds
+        long timeElapsed = (endTime - startTime) / 1_000_000;
+
+        // Log the time elapsed
+        System.out.println("[LOG] Time taken for search: " + timeElapsed + " ms");
     }
 }

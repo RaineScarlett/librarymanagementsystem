@@ -8,11 +8,11 @@ public class Main {
         Floor firstFloor = new Floor("First Floor");
         Floor secondFloor = new Floor("Second Floor");
 
-        // Create shelves (link shelves directly to floors)
-        Shelf fictionShelf = new Shelf("Fiction Shelf", firstFloor);
-        Shelf fantasyShelf = new Shelf("Fantasy Shelf", firstFloor);
-        Shelf classicShelf = new Shelf("Classic Shelf", secondFloor);
-        Shelf scienceShelf = new Shelf("Science Shelf", secondFloor);
+        // Create shelves
+        Shelf fictionShelf = new Shelf("Fiction Shelf");
+        Shelf fantasyShelf = new Shelf("Fantasy Shelf");
+        Shelf classicShelf = new Shelf("Classic Shelf");
+        Shelf scienceShelf = new Shelf("Science Shelf");
 
         // Add shelves to floors
         firstFloor.addShelf(fictionShelf);
@@ -20,7 +20,7 @@ public class Main {
         secondFloor.addShelf(classicShelf);
         secondFloor.addShelf(scienceShelf);
 
-        // Create books (no need for the floor or shelf passed in constructor)
+        // Create books and assign them to shelves
         Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Fiction");
         Book book2 = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", "Fantasy");
         Book book3 = new Book("The Catcher in the Rye", "J.D. Salinger", "Fiction");
@@ -28,7 +28,6 @@ public class Main {
         Book book5 = new Book("1984", "George Orwell", "Classic");
         Book book6 = new Book("The Origin of Species", "Charles Darwin", "Science");
 
-        // Add books to shelves
         fictionShelf.addBook(book1);
         fictionShelf.addBook(book3);
         fantasyShelf.addBook(book2);
@@ -64,6 +63,7 @@ public class Main {
             System.out.print("Enter your search query: ");
             String query = scanner.nextLine();
 
+            // Create the base strategy based on user choice
             SearchStrategy strategy;
             switch (choice) {
                 case 1:
@@ -80,7 +80,13 @@ public class Main {
                     continue;
             }
 
-            librarySearch.setSearchStrategy(strategy);
+            // Apply the decorator for logging functionality
+            SearchStrategy decoratedStrategy = new LoggingSearchDecorator(strategy);
+
+            // Set the decorated strategy to the library search
+            librarySearch.setSearchStrategy(decoratedStrategy);
+
+            // Execute the decorated search
             librarySearch.executeSearch(query);
         }
 
