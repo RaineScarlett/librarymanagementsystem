@@ -1,39 +1,44 @@
 public class Book {
-    private String _title;
-    private String _author;
-    private String _genre;
-
-    public Book(String title) {
-        this._title = title;
-    }
-
-    // also needs a location (shelf number and floor number)
+    private String title;
+    private String author;
+    private String genre;
+    private Shelf shelf;  // Book knows only about the Shelf
 
     public Book(String title, String author, String genre) {
-        this._title = title;
-        this._author = author;
-        this._genre = genre;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
     }
 
     // Getters
     public String getTitle() {
-        return _title;
+        return title;
     }
 
     public String getAuthor() {
-        return _author;
+        return author;
     }
 
     public String getGenre() {
-        return _genre;
+        return genre;
+    }
+
+    public Shelf getShelf() {
+        return shelf;
+    }
+
+    // Set shelf for book
+    public void setShelf(Shelf shelf) {
+        this.shelf = shelf;
+    }
+
+    // Get the floor from the shelf
+    public Floor getFloor() {
+        return shelf != null ? shelf.getFloor() : null;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + _title + '\'' +
-                ", author='" + _author + '\'' +
-                ", genre='" + _genre + '\'' +
-                '}';
+        return title + " by " + author + " (Genre: " + genre + ", Shelf: " + shelf.getName() + ", Floor: " + getFloor().getName() + ")";
     }
 }
