@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shelf {
+public class Shelf extends Observable {
     private String name;
     private Floor floor;  // Reference to the floor the shelf is on
     private List<Book> books;
@@ -27,7 +27,8 @@ public class Shelf {
 
     public void addBook(Book book) {
         books.add(book);
-        book.setShelf(this); // Assign this shelf to the book
+        book.setShelf(this);
+        notifyObservers("New book added: " + book.getTitle() + " to " + name);
     }
 
     public List<Book> getBooks() {

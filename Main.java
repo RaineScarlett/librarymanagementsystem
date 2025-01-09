@@ -8,6 +8,10 @@ public class Main {
         Floor firstFloor = new Floor("First Floor");
         Floor secondFloor = new Floor("Second Floor");
 
+        User alice = new User("Alice");
+        User bob = new User("Bob");
+        User dennieboygames = new User("Dennieboygames");
+
         // Create shelves
         Shelf fictionShelf = new Shelf("Fiction Shelf");
         Shelf fantasyShelf = new Shelf("Fantasy Shelf");
@@ -27,6 +31,11 @@ public class Main {
         Book book4 = new Book("A Game of Thrones", "George R.R. Martin", "Fantasy");
         Book book5 = new Book("1984", "George Orwell", "Classic");
         Book book6 = new Book("The Origin of Species", "Charles Darwin", "Science");
+
+// Subscribe users to shelves
+        fictionShelf.addObserver(alice);
+        fantasyShelf.addObserver(bob);
+        scienceShelf.addObserver(dennieboygames);
 
         fictionShelf.addBook(book1);
         fictionShelf.addBook(book3);
