@@ -32,7 +32,7 @@ public class Main {
         Book book5 = new Book("1984", "George Orwell", "Classic");
         Book book6 = new Book("The Origin of Species", "Charles Darwin", "Science");
 
-// Subscribe users to shelves
+        // Subscribe users to shelves
         fictionShelf.addObserver(alice);
         fantasyShelf.addObserver(bob);
         scienceShelf.addObserver(dennieboygames);
@@ -49,8 +49,9 @@ public class Main {
         books.addAll(firstFloor.getAllBooks());
         books.addAll(secondFloor.getAllBooks());
 
-        // Initialize the library search
+        // Initialize the library search and the factory
         LibrarySearch librarySearch = new LibrarySearch();
+        SearchStrategyFactory factory = new SearchStrategyFactory(books);  // Factory for creating search strategies
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -72,21 +73,13 @@ public class Main {
             System.out.print("Enter your search query: ");
             String query = scanner.nextLine();
 
-            // Create the base strategy based on user choice
-            SearchStrategy strategy;
-            switch (choice) {
-                case 1:
-                    strategy = new SearchByTitle(books);
-                    break;
-                case 2:
-                    strategy = new SearchByAuthor(books);
-                    break;
-                case 3:
-                    strategy = new SearchByGenre(books);
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-                    continue;
+            // Use the factory to create the correct search strategy
+            SearchStrategy strategy = factory.createSearchStrategy(choice);
+
+            // If the strategy is null, the user chose an invalid option
+            if (strategy == null) {
+                System.out.println("Invalid search option.");
+                continue;
             }
 
             // Apply the decorator for logging functionality
