@@ -1,5 +1,8 @@
 # Library Management System
 
+## Project hosted on:
+https://github.com/RaineScarlett/randomjavaapplicationforsd
+
 ## Overview
 For our second project we are making a simple library management system.
 for this we aim to implement different design pattens. the system will among others feature searching for books by title, author or genre.
