@@ -102,6 +102,10 @@ public class Book {
     public String toString() {
         String shelfName = (shelf != null) ? shelf.getName() : "No shelf assigned";
         String floorName = (shelf != null && shelf.getFloor() != null) ? shelf.getFloor().getName() : "No floor assigned";
+        if (bookType.equals("ebook")) {
+            return "E-Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Type: " + bookType;
+        }
+
         return "Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Shelf: " + shelfName + ", Floor: " + floorName + ", Type: " + bookType;
     }
 }
