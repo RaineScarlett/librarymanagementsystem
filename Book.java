@@ -104,6 +104,10 @@ public class Book {
         return fileFormat;
     }
 
+    public String getBookType() {
+        return bookType;
+    }
+
 
     // Overriding toString() to include shelf and floor details
     @Override

@@ -138,7 +138,10 @@ public class Main {
                             if (librarianChoice == 1) {
                                 // See all of the library's books and shelves at once
                                 for (Book book : books) {
-                                    System.out.println(book.getTitle() + " by " + book.getAuthor() + " at " + book.getShelf());
+                                    if(book.getBookType() == "ebook"){
+                                        System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor());
+                                    }
+                                    System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor() + " at " + book.getShelf());
                                 }
                             } else if (librarianChoice == 2) {
                                 System.out.println("\nGoodnight, " + librarian.getLibrarianName() + ". Logging out...");
