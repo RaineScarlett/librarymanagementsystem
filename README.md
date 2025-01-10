@@ -60,6 +60,10 @@ you can make a factory and just call the factory in the main file. this doesn't 
 but it abstracts and simplifies the code, as well as preventing it from becoming messy. 
 making it easier for the developers to work with, and to maintain.
 
+5. **Command Pattern**
+We used the command pattern to limit certain functionalities of the application to different types of users. So, while regular users can make searches, librarians can log in, get a personalised login and log out message, and more importantly can view a list of all books at once which other users can't.
+Each option selected by the librarian is treated as a command that can be executed independently.
+
 ---
 
 1. **Interact with the System**:
@@ -92,4 +96,17 @@ Notification for Bob: A new book "Harry Potter and the Philosopher's Stone" was 
 Search Results for "Fiction":
 1. Title: The Great Gatsby, Author: F. Scott Fitzgerald, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
 2. Title: The Catcher in the Rye, Author: J.D. Salinger, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
+```
+
+### Librarian Login:
+```
+Librarian Options:
+1. View All Books
+2. Log Out
+```
+
+### View all books (locked to librarians):
+```
+The Great Gatsby by F. Scott Fitzgerald at Fiction Shelf
+The Catcher in the Rye by J.D. Salinger at Fiction Shelf
 ```
