@@ -30,12 +30,14 @@ public class Main {
         Shelf horrorShelf = new Shelf("Horror Shelf");
         Shelf gothicShelf = new Shelf("Gothic Shelf");
         Shelf biographyShelf = new Shelf("Biography Shelf");
+        Shelf treatiseShelf = new Shelf("Treatise Shelf");
 
         // Add shelves to floors
         firstFloor.addShelf(fictionShelf);
         firstFloor.addShelf(fantasyShelf);
         secondFloor.addShelf(classicShelf);
         secondFloor.addShelf(scienceShelf);
+        secondFloor.addShelf(treatiseShelf);
         thirdFloor.addShelf(philosophyShelf);
         thirdFloor.addShelf(horrorShelf);
         thirdFloor.addShelf(gothicShelf);
@@ -53,6 +55,10 @@ public class Main {
         Book book9 = new Book("Frankenstein", "Mary Shelley", "Gothic");
         Book book10 = new Book("The Diary of a Young Girl", "Anne Frank", "Biography");
         Book book11 = new Book("The King in Yellow", "Robert Chambers", "Horror");
+        Book book12 = new Book("The Festival", "H. P. Lovecraft", "Horror");
+        Book book13 = new Book("Art of War", "Sun Tzu", "Treatise");
+        Book book14 = new Book("Either", "Soren Kierkegaard", "Philosophy");
+        Book book15 = new Book("Or", "Soren Kierkegaard", "Philosophy");
 
         // Subscribe users to shelves
         fictionShelf.addObserver(alice);
@@ -72,6 +78,10 @@ public class Main {
         gothicShelf.addBook(book9);
         biographyShelf.addBook(book10);
         horrorShelf.addBook(book11);
+        horrorShelf.addBook(book12);
+        treatiseShelf.addBook(book13);
+        philosophyShelf.addBook(book14);
+        philosophyShelf.addBook(book15);
 
         // Combine all books for searching
         List<Book> books = new ArrayList<>();
