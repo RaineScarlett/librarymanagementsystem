@@ -53,12 +53,12 @@ public class Main {
         Book book6 = new Book.PhysicalBookBuilder().title("The Second Sex").author("Simone du Beauvoir").genre("Philosophy").build();
 
 // E-Books
-        Book book7 = new Book.EBookBuilder().title("No Exit").author("Jean Paul Sartre").genre("Philosophy").build();
-        Book book8 = new Book.EBookBuilder().title("Dracula").author("Bram Stoker").genre("Horror").build();
-        Book book9 = new Book.EBookBuilder().title("Frankenstein").author("Mary Shelley").genre("Gothic").build();
-        Book book10 = new Book.EBookBuilder().title("The Diary of a Young Girl").author("Anne Frank").genre("Biography").build();
-        Book book11 = new Book.EBookBuilder().title("The King in Yellow").author("Robert Chambers").genre("Horror").build();
-        Book book12 = new Book.EBookBuilder().title("The Festival").author("H. P. Lovecraft").genre("Horror").build();
+        Book book7 = new Book.EBookBuilder().title("No Exit").author("Jean Paul Sartre").genre("Philosophy").fileFormat("PDF").build();
+        Book book8 = new Book.EBookBuilder().title("Dracula").author("Bram Stoker").genre("Horror").fileFormat("EPUB").build();
+        Book book9 = new Book.EBookBuilder().title("Frankenstein").author("Mary Shelley").genre("Gothic").fileFormat("AZW3").build();
+        Book book10 = new Book.EBookBuilder().title("The Diary of a Young Girl").author("Anne Frank").genre("Biography").fileFormat("MOBI").build();
+        Book book11 = new Book.EBookBuilder().title("The King in Yellow").author("Robert Chambers").genre("Horror").fileFormat("AZW3").build();
+        Book book12 = new Book.EBookBuilder().title("The Festival").author("H. P. Lovecraft").genre("Horror").fileFormat("EPUB").build();
 
 // Remaining Physical Books
         Book book13 = new Book.PhysicalBookBuilder().title("Art of War").author("Sun Tzu").genre("Treatise").build();

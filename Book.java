@@ -4,6 +4,7 @@ public class Book {
     private String genre;
     protected String bookType;
     private Shelf shelf;  // Reference to the shelf the book is on
+    private String fileFormat;
 
     // Constructor to create a book
     public Book(BookBuilder<?> builder) {
@@ -11,6 +12,7 @@ public class Book {
         this.author = builder.author;
         this.genre = builder.genre;
         this.bookType = builder.bookType;
+        this.fileFormat = builder.fileFormat;
     }
 
     public static abstract class BookBuilder<T extends BookBuilder<T>> {
@@ -18,6 +20,7 @@ public class Book {
         private String author;
         private String genre;
         protected String bookType;
+        private String fileFormat;
 
         public T title(String title) {
             this.title = title;
@@ -32,8 +35,9 @@ public class Book {
             this.genre = genre;
             return self();
         }
-        public T type(String type) {
-            this.bookType = type;
+
+        public T fileFormat(String fileFormat) {
+            this.fileFormat = fileFormat;
             return self();
         }
         protected abstract T self();
@@ -96,6 +100,10 @@ public class Book {
         return shelf;
     }
 
+    public String getFileFormat() {
+        return fileFormat;
+    }
+
 
     // Overriding toString() to include shelf and floor details
     @Override
@@ -103,7 +111,7 @@ public class Book {
         String shelfName = (shelf != null) ? shelf.getName() : "No shelf assigned";
         String floorName = (shelf != null && shelf.getFloor() != null) ? shelf.getFloor().getName() : "No floor assigned";
         if (bookType.equals("ebook")) {
-            return "E-Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Type: " + bookType;
+            return "E-Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Type: " + bookType + ", Format: " + fileFormat;
         }
 
         return "Book: " + title + ", Author: " + author + ", Genre: " + genre + ", Shelf: " + shelfName + ", Floor: " + floorName + ", Type: " + bookType;
