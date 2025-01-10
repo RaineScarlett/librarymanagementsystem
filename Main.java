@@ -27,7 +27,8 @@ public class Main {
         Shelf classicShelf = new Shelf("Classic Shelf");
         Shelf scienceShelf = new Shelf("Science Shelf");
         Shelf philosophyShelf = new Shelf("Philosophy Shelf");
-        Shelf novelShelf = new Shelf("Novel Shelf");
+        Shelf horrorShelf = new Shelf("Horror Shelf");
+        Shelf gothicShelf = new Shelf("Gothic Shelf");
         Shelf biographyShelf = new Shelf("Biography Shelf");
 
         // Add shelves to floors
@@ -36,7 +37,8 @@ public class Main {
         secondFloor.addShelf(classicShelf);
         secondFloor.addShelf(scienceShelf);
         thirdFloor.addShelf(philosophyShelf);
-        thirdFloor.addShelf(novelShelf);
+        thirdFloor.addShelf(horrorShelf);
+        thirdFloor.addShelf(gothicShelf);
         thirdFloor.addShelf(biographyShelf);
 
         // Create books and assign them to shelves
@@ -45,18 +47,19 @@ public class Main {
         Book book3 = new Book("A Game of Thrones", "George R.R. Martin", "Fantasy");
         Book book4 = new Book("1984", "George Orwell", "Classic");
         Book book5 = new Book("The Origin of Species", "Charles Darwin", "Science");
-        Book book6 = new Book("The second sex", "Simone du Beauvoir", "Philosophy");
+        Book book6 = new Book("The Second Sex", "Simone du Beauvoir", "Philosophy");
         Book book7 = new Book("No Exit", "Jean Paul Sartre", "Philosophy");
-        Book book8 = new Book("Dracula", "Bram Stoker", "Novel");
-        Book book9 = new Book("Frankenstein", "Mary Shelley", "Novel");
-        Book book10 = new Book("The Diary of a Young Girl", "Anne Frank", "Autobiography");
+        Book book8 = new Book("Dracula", "Bram Stoker", "Horror");
+        Book book9 = new Book("Frankenstein", "Mary Shelley", "Gothic");
+        Book book10 = new Book("The Diary of a Young Girl", "Anne Frank", "Biography");
+        Book book11 = new Book("The King in Yellow", "Robert Chambers", "Horror");
 
         // Subscribe users to shelves
         fictionShelf.addObserver(alice);
         fantasyShelf.addObserver(bob);
         scienceShelf.addObserver(dennieboygames);
         philosophyShelf.addObserver(richard);
-        novelShelf.addObserver(pjotrJan);
+        horrorShelf.addObserver(pjotrJan);
 
         fictionShelf.addBook(book1);
         fictionShelf.addBook(book2);
@@ -65,9 +68,10 @@ public class Main {
         scienceShelf.addBook(book5);
         philosophyShelf.addBook(book6);
         philosophyShelf.addBook(book7);
-        novelShelf.addBook(book8);
-        novelShelf.addBook(book9);
+        horrorShelf.addBook(book8);
+        gothicShelf.addBook(book9);
         biographyShelf.addBook(book10);
+        horrorShelf.addBook(book11);
 
         // Combine all books for searching
         List<Book> books = new ArrayList<>();
@@ -121,7 +125,7 @@ public class Main {
                                     System.out.println(book.getTitle() + " by " + book.getAuthor() + " at " + book.getShelf());
                                 }
                             } else if (librarianChoice == 2) {
-                                System.out.println("Goodnight, " + librarian.getLibrarianName() + ". Logging out...");
+                                System.out.println("\nGoodnight, " + librarian.getLibrarianName() + ". Logging out...");
                                 break;
                             } else {
                                 System.out.println("Invalid option, please select again.");
