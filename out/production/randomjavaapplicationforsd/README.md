@@ -10,6 +10,7 @@ there are also different shelves and floors that the books are located on. which
 1. **Search for Books**:
     - Search by Title, Author, or Genre.
     - Logs search results to track queries.
+    - See all available books at once (if you're a librarian).
 
 2. **Organization**:
     - Books are organized into shelves, and shelves are part of specific floors.
@@ -18,6 +19,11 @@ there are also different shelves and floors that the books are located on. which
 3. **Notifications**:
     - Users can subscribe to shelves to receive real-time notifications when new books are added.
 
+4. **Login**
+    - When starting the application, you can login as a librarian.
+    - When not logged in, you can get all basic functionalities.
+    - When logged in as a librarian, you have the option of viewing all available books.
+    - Librarians also get personalised login and logout messages with their names.
 ---
 
 ## Design Patterns Used
@@ -46,25 +52,17 @@ and they got the expected output. that is the main function of the decorator pat
 but aren't an actual part of it.
 
 4. **Factory Method**:
-
+The factory pattern is mostly used for abstraction and simplification of classes. that is exactly what we are doing here.
+the search strategies are abstracted into a factory. so in the main file all that needs to be added is this:
+`SearchStrategy strategy = factory.createSearchStrategy(choice);`. you could abstract even more in theory.
+say you want to implement normal books and ebooks. instead of making another class for that, 
+you can make a factory and just call the factory in the main file. this doesn't necessarily decrease the amount of code,
+but it abstracts and simplifies the code, as well as preventing it from becoming messy. 
+making it easier for the developers to work with, and to maintain.
 
 ---
 
-## How to Run the Program
-1. **Compile the Code**:
-    - Open a terminal or IDE.
-    - Run the following command to compile all `.java` files:
-      ```bash
-      javac *.java
-      ```
-
-2. **Run the Program**:
-    - Execute the `Main` class:
-      ```bash
-      java Main
-      ```
-
-3. **Interact with the System**:
+1. **Interact with the System**:
     - Choose from the menu options to search for books or explore the notifications feature.
     - Example:
       ```
@@ -72,12 +70,12 @@ but aren't an actual part of it.
       1. Search by Title
       2. Search by Author
       3. Search by Genre
-      4. Exit
+      4. Librarian Login
+      5. Exit
       Choose an option: 1
       Enter your search query: The Great Gatsby
       ```
-
-4. **View Notifications**:
+2. **View Notifications**:
     - Notifications for subscribed users will be displayed directly in the console when new books are added.
 
 ---
@@ -95,18 +93,3 @@ Search Results for "Fiction":
 1. Title: The Great Gatsby, Author: F. Scott Fitzgerald, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
 2. Title: The Catcher in the Rye, Author: J.D. Salinger, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
 ```
-
----
-
-## Future Enhancements
-- Add more search criteria (e.g., year of publication).
-- Implement a graphical user interface (GUI) for better user experience.
-- Add user authentication and borrowing functionality.
-
----
-
-## Author
-**[Your Name]**  
-[Your Email Address]
-
- 

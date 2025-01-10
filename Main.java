@@ -44,21 +44,27 @@ public class Main {
         thirdFloor.addShelf(biographyShelf);
 
         // Create books and assign them to shelves
-        Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Fiction");
-        Book book2 = new Book("The Catcher in the Rye", "J.D. Salinger", "Fiction");
-        Book book3 = new Book("A Game of Thrones", "George R.R. Martin", "Fantasy");
-        Book book4 = new Book("1984", "George Orwell", "Classic");
-        Book book5 = new Book("The Origin of Species", "Charles Darwin", "Science");
-        Book book6 = new Book("The Second Sex", "Simone du Beauvoir", "Philosophy");
-        Book book7 = new Book("No Exit", "Jean Paul Sartre", "Philosophy");
-        Book book8 = new Book("Dracula", "Bram Stoker", "Horror");
-        Book book9 = new Book("Frankenstein", "Mary Shelley", "Gothic");
-        Book book10 = new Book("The Diary of a Young Girl", "Anne Frank", "Biography");
-        Book book11 = new Book("The King in Yellow", "Robert Chambers", "Horror");
-        Book book12 = new Book("The Festival", "H. P. Lovecraft", "Horror");
-        Book book13 = new Book("Art of War", "Sun Tzu", "Treatise");
-        Book book14 = new Book("Either", "Soren Kierkegaard", "Philosophy");
-        Book book15 = new Book("Or", "Soren Kierkegaard", "Philosophy");
+        // Physical Books
+        Book book1 = new Book.PhysicalBookBuilder().title("The Great Gatsby").author("F. Scott Fitzgerald").genre("Fiction").build();
+        Book book2 = new Book.PhysicalBookBuilder().title("The Catcher in the Rye").author("J.D. Salinger").genre("Fiction").build();
+        Book book3 = new Book.PhysicalBookBuilder().title("A Game of Thrones").author("George R.R. Martin").genre("Fantasy").build();
+        Book book4 = new Book.PhysicalBookBuilder().title("1984").author("George Orwell").genre("Classic").build();
+        Book book5 = new Book.PhysicalBookBuilder().title("The Origin of Species").author("Charles Darwin").genre("Science").build();
+        Book book6 = new Book.PhysicalBookBuilder().title("The Second Sex").author("Simone du Beauvoir").genre("Philosophy").build();
+
+// E-Books
+        Book book7 = new Book.EBookBuilder().title("No Exit").author("Jean Paul Sartre").genre("Philosophy").build();
+        Book book8 = new Book.EBookBuilder().title("Dracula").author("Bram Stoker").genre("Horror").build();
+        Book book9 = new Book.EBookBuilder().title("Frankenstein").author("Mary Shelley").genre("Gothic").build();
+        Book book10 = new Book.EBookBuilder().title("The Diary of a Young Girl").author("Anne Frank").genre("Biography").build();
+        Book book11 = new Book.EBookBuilder().title("The King in Yellow").author("Robert Chambers").genre("Horror").build();
+        Book book12 = new Book.EBookBuilder().title("The Festival").author("H. P. Lovecraft").genre("Horror").build();
+
+// Remaining Physical Books
+        Book book13 = new Book.PhysicalBookBuilder().title("Art of War").author("Sun Tzu").genre("Treatise").build();
+        Book book14 = new Book.PhysicalBookBuilder().title("Either").author("Soren Kierkegaard").genre("Philosophy").build();
+        Book book15 = new Book.PhysicalBookBuilder().title("Or").author("Soren Kierkegaard").genre("Philosophy").build();
+
 
         // Subscribe users to shelves
         fictionShelf.addObserver(alice);
