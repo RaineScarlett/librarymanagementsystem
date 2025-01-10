@@ -34,4 +34,9 @@ public class Shelf extends Observable {
     public List<Book> getBooks() {
         return books;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -10,6 +10,7 @@ there are also different shelves and floors that the books are located on. which
 1. **Search for Books**:
     - Search by Title, Author, or Genre.
     - Logs search results to track queries.
+    - See all available books at once (if you're a librarian).
 
 2. **Organization**:
     - Books are organized into shelves, and shelves are part of specific floors.
@@ -18,6 +19,11 @@ there are also different shelves and floors that the books are located on. which
 3. **Notifications**:
     - Users can subscribe to shelves to receive real-time notifications when new books are added.
 
+4. **Login**
+    - When starting the application, you can login as a librarian.
+    - When not logged in, you can get all basic functionalities.
+    - When logged in as a librarian, you have the option of viewing all available books.
+    - Librarians also get personalised login and logout messages with their names.
 ---
 
 ## Design Patterns Used
@@ -64,7 +70,8 @@ making it easier for the developers to work with, and to maintain.
       1. Search by Title
       2. Search by Author
       3. Search by Genre
-      4. Exit
+      4. Librarian Login
+      5. Exit
       Choose an option: 1
       Enter your search query: The Great Gatsby
       ```
@@ -86,11 +93,3 @@ Search Results for "Fiction":
 1. Title: The Great Gatsby, Author: F. Scott Fitzgerald, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
 2. Title: The Catcher in the Rye, Author: J.D. Salinger, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
 ```
-
----
-
-## Author
-**[Your Name]**  
-[Your Email Address]
-
- 
