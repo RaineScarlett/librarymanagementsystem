@@ -427,3 +427,7 @@ Librarian Options:
 ```
 ebook: The Diary of a Young Girl by Anne Frank
 ```
+
+This application was developed by: 
+- Bas (bas-naald)
+- Reyna (RaineScarlett) 
