@@ -1,5 +1,8 @@
 # Library Management System
 
+## Project hosted on:
+https://github.com/RaineScarlett/randomjavaapplicationforsd
+
 ## Overview
 For our second project we are making a simple library management system.
 for this we aim to implement different design pattens. the system will among others feature searching for books by title, author or genre.
@@ -100,9 +103,8 @@ Notification for Bob: A new book "Harry Potter and the Philosopher's Stone" was 
 
 ### Search Results:
 ```
-Search Results for "Fiction":
-1. Title: The Great Gatsby, Author: F. Scott Fitzgerald, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
-2. Title: The Catcher in the Rye, Author: J.D. Salinger, Genre: Fiction, Shelf: Fiction Shelf, Floor: First Floor
+Search Results for "No Exit":
+Found: E-Book: No Exit, Author: Jean Paul Sartre, Genre: Philosophy, Type: ebook, Format: PDF
 ```
 
 ### Librarian Login:
@@ -114,6 +116,5 @@ Librarian Options:
 
 ### View all books (locked to librarians):
 ```
-The Great Gatsby by F. Scott Fitzgerald at Fiction Shelf
-The Catcher in the Rye by J.D. Salinger at Fiction Shelf
+ebook: The Diary of a Young Girl by Anne Frank
 ```

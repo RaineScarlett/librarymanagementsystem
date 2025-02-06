@@ -43,28 +43,27 @@ public class Main {
         thirdFloor.addShelf(gothicShelf);
         thirdFloor.addShelf(biographyShelf);
 
-        // Create books and assign them to shelves
+        // Create books and assign them to shelves using the BookFactory
         // Physical Books
-        Book book1 = new Book.PhysicalBookBuilder().title("The Great Gatsby").author("F. Scott Fitzgerald").genre("Fiction").build();
-        Book book2 = new Book.PhysicalBookBuilder().title("The Catcher in the Rye").author("J.D. Salinger").genre("Fiction").build();
-        Book book3 = new Book.PhysicalBookBuilder().title("A Game of Thrones").author("George R.R. Martin").genre("Fantasy").build();
-        Book book4 = new Book.PhysicalBookBuilder().title("1984").author("George Orwell").genre("Classic").build();
-        Book book5 = new Book.PhysicalBookBuilder().title("The Origin of Species").author("Charles Darwin").genre("Science").build();
-        Book book6 = new Book.PhysicalBookBuilder().title("The Second Sex").author("Simone du Beauvoir").genre("Philosophy").build();
+        Book book1 = BookFactory.createPhysicalBook("The Great Gatsby", "F. Scott Fitzgerald", "Fiction", null);
+        Book book2 = BookFactory.createPhysicalBook("The Catcher in the Rye", "J.D. Salinger", "Fiction", null);
+        Book book3 = BookFactory.createPhysicalBook("A Game of Thrones", "George R.R. Martin", "Fantasy", null);
+        Book book4 = BookFactory.createPhysicalBook("1984", "George Orwell", "Classic", null);
+        Book book5 = BookFactory.createPhysicalBook("The Origin of Species", "Charles Darwin", "Science", null);
+        Book book6 = BookFactory.createPhysicalBook("The Second Sex", "Simone de Beauvoir", "Philosophy", null);
 
-// E-Books
-        Book book7 = new Book.EBookBuilder().title("No Exit").author("Jean Paul Sartre").genre("Philosophy").fileFormat("PDF").build();
-        Book book8 = new Book.EBookBuilder().title("Dracula").author("Bram Stoker").genre("Horror").fileFormat("EPUB").build();
-        Book book9 = new Book.EBookBuilder().title("Frankenstein").author("Mary Shelley").genre("Gothic").fileFormat("AZW3").build();
-        Book book10 = new Book.EBookBuilder().title("The Diary of a Young Girl").author("Anne Frank").genre("Biography").fileFormat("MOBI").build();
-        Book book11 = new Book.EBookBuilder().title("The King in Yellow").author("Robert Chambers").genre("Horror").fileFormat("AZW3").build();
-        Book book12 = new Book.EBookBuilder().title("The Festival").author("H. P. Lovecraft").genre("Horror").fileFormat("EPUB").build();
+        // E-Books
+        Book book7 = BookFactory.createEBook("No Exit", "Jean-Paul Sartre", "Philosophy", "PDF");
+        Book book8 = BookFactory.createEBook("Dracula", "Bram Stoker", "Horror", "EPUB");
+        Book book9 = BookFactory.createEBook("Frankenstein", "Mary Shelley", "Gothic", "AZW3");
+        Book book10 = BookFactory.createEBook("The Diary of a Young Girl", "Anne Frank", "Biography", "MOBI");
+        Book book11 = BookFactory.createEBook("The King in Yellow", "Robert Chambers", "Horror", "AZW3");
+        Book book12 = BookFactory.createEBook("The Festival", "H. P. Lovecraft", "Horror", "EPUB");
 
-// Remaining Physical Books
-        Book book13 = new Book.PhysicalBookBuilder().title("Art of War").author("Sun Tzu").genre("Treatise").build();
-        Book book14 = new Book.PhysicalBookBuilder().title("Either").author("Soren Kierkegaard").genre("Philosophy").build();
-        Book book15 = new Book.PhysicalBookBuilder().title("Or").author("Soren Kierkegaard").genre("Philosophy").build();
-
+        // Remaining Physical Books
+        Book book13 = BookFactory.createPhysicalBook("Art of War", "Sun Tzu", "Treatise", null);
+        Book book14 = BookFactory.createPhysicalBook("Either/Or", "Søren Kierkegaard", "Philosophy", null);
+        Book book15 = BookFactory.createPhysicalBook("Fear and Trembling", "Søren Kierkegaard", "Philosophy", null);
 
         // Subscribe users to shelves
         fictionShelf.addObserver(alice);
@@ -73,6 +72,7 @@ public class Main {
         philosophyShelf.addObserver(richard);
         horrorShelf.addObserver(pjotrJan);
 
+        // Add books to shelves
         fictionShelf.addBook(book1);
         fictionShelf.addBook(book2);
         fantasyShelf.addBook(book3);
@@ -138,10 +138,11 @@ public class Main {
                             if (librarianChoice == 1) {
                                 // See all of the library's books and shelves at once
                                 for (Book book : books) {
-                                    if(book.getBookType() == "ebook"){
-                                        System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor() + "format: " + book.getFileFormat());
-                                    } else
-                                    System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor() + " at " + book.getShelf());
+                                    if (book.getBookType().equals("ebook")) {
+                                        System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor() + ", Format: " + book.getFileFormat());
+                                    } else {
+                                        System.out.println(book.getBookType() + ": " + book.getTitle() + " by " + book.getAuthor() + " at " + book.getShelf());
+                                    }
                                 }
                             } else if (librarianChoice == 2) {
                                 System.out.println("\nGoodnight, " + librarian.getLibrarianName() + ". Logging out...");
@@ -159,7 +160,6 @@ public class Main {
                 }
                 continue;
             }
- 
 
             System.out.print("Enter your search query: ");
             String query = scanner.nextLine();
