@@ -1,7 +1,7 @@
 # Library Management System
 
 ## Project hosted on:
-https://github.com/RaineScarlett/randomjavaapplicationforsd
+https://github.com/RaineScarlett/librarymanagementsystem
 
 ## Overview
 For our second project we are making a simple library management system.
